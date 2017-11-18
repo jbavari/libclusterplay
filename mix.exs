@@ -15,9 +15,12 @@ defmodule Libclusterplay.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     [
+      mod: {Libclusterplay, []},
       applications: [
+        # :libclusterplay,
         :logger,
-        :libcluster
+        :libcluster,
+        :gproc
       ]
     ]
   end
@@ -33,7 +36,8 @@ defmodule Libclusterplay.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:libcluster, "~> 2.1"}
+      {:libcluster, "~> 2.1"},
+      {:gproc, "0.6.1"}
     ]
   end
 end
