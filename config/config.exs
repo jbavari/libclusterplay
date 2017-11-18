@@ -38,3 +38,8 @@ config :libcluster,
         multicast_ttl: 1]]]
 
     # import_config "#{Mix.env}.exs"
+config :logger, level: :info,
+  backends: [
+    :console
+  ],
+  format: "$date - $time: $metadata[$level] $message\n"
