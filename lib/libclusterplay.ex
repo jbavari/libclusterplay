@@ -13,4 +13,14 @@ defmodule Libclusterplay do
     opts = [strategy: :one_for_one, name: Libclusterplay]
     Supervisor.start_link(children, opts)
   end
+
+  def cast_all_nodes(msg) do
+    nodes = Node.list()
+    all_nodes = nodes ++ [Node.self()]
+
+    Enum.each(all_nodes, fn(node) ->
+      GenServer.cast({:global, node}, {:global_worker, msg})
+    end)
+
+  end
 end
