@@ -7,7 +7,8 @@ defmodule Libclusterplay do
 
     children = [
       worker(Libclusterplay.GlobalWorker, [], id: :global_worker,
-        name: :global_worker)
+        name: :global_worker),
+      {Cluster.Supervisor, [Application.get_env(:libcluster, :topologies), [name: Libclusterplay.ClusterSupervisor]]}
     ]
 
     opts = [strategy: :one_for_one, name: Libclusterplay]

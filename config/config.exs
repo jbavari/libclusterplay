@@ -25,6 +25,7 @@ use Mix.Config
 #   ]
 
 config :libcluster,
+  debug: true,
   topologies: [
     gossip_example: [
       strategy: Cluster.Strategy.Gossip,
@@ -38,7 +39,7 @@ config :libcluster,
         multicast_ttl: 1]]]
 
     # import_config "#{Mix.env}.exs"
-config :logger, level: :info,
+config :logger, level: :debug,
   backends: [
     :console
   ],
