@@ -39,7 +39,7 @@ config :libcluster,
         multicast_ttl: 1]]]
 
     # import_config "#{Mix.env}.exs"
-config :logger, level: :debug,
+config :logger, level: :warn,
   backends: [
     :console
   ],
